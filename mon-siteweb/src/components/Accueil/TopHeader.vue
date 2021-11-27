@@ -1,17 +1,79 @@
 <template>
-
-  <div class="head">
+  <v-card class="overflow-hidden">
     <v-app-bar
-      color="deep-purple"
+      absolute
+      color="#6A76AB"
       dark
+      shrink-on-scroll
+      prominent
+      src="https://picsum.photos/1920/1080?random"
+      fade-img-on-scroll
+      scroll-target="#scrolling-techniques-3"
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+    
+    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+        ></v-img>
+      </template>
 
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-toolbar-title>Title2</v-toolbar-title>
-      <v-toolbar-title>Title3</v-toolbar-title>
+      <v-app-bar-title>IT-M.Reset </v-app-bar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-menu
+        bottom
+        left
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            color="white"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
+            <v-tab>{{ item.title }}</v-tab>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      
+      <template v-slot:extension >
+        <v-tabs fixed-tabs v-model="tab">
+          <v-tab v-for ="menu in menus" :key="menu.tab">
+            {{menu.tab}} 
+          </v-tab>
+        </v-tabs>
+      </template>
+      
     </v-app-bar>
-
+    
+    <v-sheet
+      id="scrolling-techniques-3"
+      class="overflow-y-auto"
+      max-height="800"
+    >
+      <v-container style="height: 1000px;"> </v-container>
+      
+    </v-sheet>
     <v-navigation-drawer
       v-model="drawer"
       absolute
@@ -41,9 +103,9 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </div>
+  </v-card>
+  
 </template>
-
 
 <script>
   export default {
@@ -52,6 +114,18 @@
         return{
       drawer: false,
       group: null,
+      tab: null,
+      items: [
+        { title: 'A propos' },
+        { title: 'Nous contacter' },
+        { title: 'Infos' },
+      ],
+      menus:[
+        {tab: 'Nos services'},
+        {tab: 'Réparations'},
+        {tab: 'Nous cantacter'},
+        {tab: 'Adresse'}
+      ]
     }
   }
 }

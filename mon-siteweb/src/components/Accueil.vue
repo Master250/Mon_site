@@ -1,7 +1,6 @@
 <template>
     <v-app id="accueil" class="text-center">
-        <top-header/>
-        <h1 >Bienvevue chez IT-Master Reset</h1>     
+        <top-header/>     
         
         <router-view></router-view>
          
