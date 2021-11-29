@@ -1,5 +1,27 @@
 <template>
   <v-card class="overflow-hidden">
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Accueil</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Mon compte</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
     <v-app-bar
       absolute
       color="#6A76AB"
@@ -10,8 +32,7 @@
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-3"
     >
-    
-    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -31,102 +52,118 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-menu
-        bottom
-        left
-      >
+      <v-menu bottom left>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            color="white"
-            v-bind="attrs"
-            v-on="on"
-          >
+          <v-btn icon color="white" v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-tab>{{ item.title }}</v-tab>
+          <v-list-item v-for="(point, i) in points" :key="i">
+            <v-tab>{{ point.title }}</v-tab>
           </v-list-item>
         </v-list>
       </v-menu>
-      
-      <template v-slot:extension >
-        <v-tabs fixed-tabs v-model="tab">
-          <v-tab v-for ="menu in menus" :key="menu.tab">
-            {{menu.tab}} 
-          </v-tab>
-        </v-tabs>
+
+      <template v-slot:extension>
+        <v-row justify="space-around">
+          <div class="text-center">
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-tab color="primary" dark v-bind="attrs" v-on="on">
+                  Nos services
+                </v-tab>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, index) in items1" :key="index" link>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+
+          <div class="text-center">
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-tab color="primary" dark v-bind="attrs" v-on="on">
+                  Réparations
+                </v-tab>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, index) in items2" :key="index" link>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+
+          <div class="text-center">
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-tab color="primary" dark v-bind="attrs" v-on="on">
+                  Nous cantacter
+                </v-tab>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, index) in items3" :key="index" link>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
+        </v-row>
       </template>
-      
     </v-app-bar>
     
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
-      max-height="800"
+      max-height="700"
+      max-width="auto"
     >
-      <v-container style="height: 1000px;"> </v-container>
+      <v-container style="height: 500px; padding: 250px">
+          
+      </v-container>
       
+      <Main/> 
     </v-sheet>
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
+    
   </v-card>
   
 </template>
 
 <script>
-  export default {
-    name:'TopHeader',
-    data (){
-        return{
+import Main from "./Main"
+export default {
+  name: "TopHeader",
+  components:{
+    Main
+  },
+  data() {
+    return {
       drawer: false,
       group: null,
       tab: null,
-      items: [
-        { title: 'A propos' },
-        { title: 'Nous contacter' },
-        { title: 'Infos' },
+      points: [
+        { title: "A propos" },
+        { title: "Nous contacter" },
+        { title: "Infos" },
       ],
-      menus:[
-        {tab: 'Nos services'},
-        {tab: 'Réparations'},
-        {tab: 'Nous cantacter'},
-        {tab: 'Adresse'}
-      ]
-    }
-  }
-}
+      items1: [
+        { title: "Dépannage" },
+        { title: "Assistance" },
+        { title: "Accessoires" },
+        { title: "Nos Tarifs" },
+      ],
+      items2: [
+        { title: "Téléphone" },
+        { title: "PC portable" },
+        { title: "PC bureau" },
+        { title: "Les tablettes" },
+      ],
+      items3: [{ title: "Apropos" }],
+    };
+  },
+};
 </script>
