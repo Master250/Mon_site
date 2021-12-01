@@ -1,19 +1,20 @@
 <template>
-temp
-  <v-card class="mx-auto" max-width="auto" align="center">
+  
+  <v-card class="mx-auto" max-width="auto" align="center"
+  style="margin-bottom:15px">
     <v-row>
       <v-col>
         <v-card max-width="334px">
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            src="../../assets/image7.jpg" alt=""
             height="200px"
           >
           </v-img>
-          <v-card-title> Top western road trips </v-card-title>
+          <v-card-title> Réparation de Téléphone mobile </v-card-title>
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
+            <v-btn color="orange lighten-2" text> Explorer </v-btn>
 
             <v-btn icon @click="show1 = !show1">
               <v-icon>{{
@@ -41,15 +42,15 @@ temp
       <v-col>
         <v-card max-width="334px">
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            src="../../assets/ecran3.jpg" alt=""
             height="200px"
           >
           </v-img>
-          <v-card-title> Top western road trips </v-card-title>
+          <v-card-title> Réparation et dépannage Pc </v-card-title>
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
+            <v-btn color="orange lighten-2" text> Explorer </v-btn>
 
             <v-btn icon @click="show2 = !show2">
               <v-icon>{{
@@ -77,15 +78,15 @@ temp
       <v-col>
         <v-card max-width="334px">
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            src="../../assets/ecran1.jpg" alt=""
             height="200px"
           >
           </v-img>
-          <v-card-title> Top western road trips </v-card-title>
+          <v-card-title>Réparations Iphone et Android </v-card-title>
           <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="orange lighten-2" text> Explore </v-btn>
+            <v-btn color="orange lighten-2" text> Explorer </v-btn>
 
             <v-btn icon @click="show3 = !show3">
               <v-icon>{{
@@ -126,3 +127,10 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+  .v-sheet.v-card:not(.v-sheet--outlined) {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    background-color: antiquewhite;
+}
+</style>

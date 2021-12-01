@@ -115,18 +115,48 @@
         </v-row>
       </template>
     </v-app-bar>
-    
+        
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
-      max-height="700"
+      max-height="700px"
       max-width="auto"
+      
+      
     >
+      
       <v-container style="height: 500px; padding: 250px">
+        
+          <v-row center
+          no-gutters
+          style="height:150px, padding:250px, justify-content:center"
+          >
+            
+            Chez Master-Réparation c'est la satisfaction totale
+            
+          </v-row>
+            <v-row justify="space-around"
+            style="padding:30px">
+              <v-btn>
+                
+              téléphones
+              <v-icon dark >
+                  mdi-export
+                </v-icon>
+              </v-btn>
+              <v-btn>
+                
+                Ordinateurs
+                <v-icon dark >
+                  mdi-export
+                </v-icon> 
+              </v-btn>
+            </v-row>
           
       </v-container>
       
-      <Main/> 
+      <Main/>
+      <Footer/> 
     </v-sheet>
     
   </v-card>
@@ -135,10 +165,12 @@
 
 <script>
 import Main from "./Main"
+import Footer from "./Footer.vue"
 export default {
   name: "TopHeader",
   components:{
-    Main
+    Main,
+    Footer
   },
   data() {
     return {
@@ -167,3 +199,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .row.no-gutters {
+    margin: 0;
+    justify-content: center;
+    width: 100%;
+}
+
+</style>
