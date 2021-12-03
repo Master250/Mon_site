@@ -8,7 +8,10 @@ Vue.use(Vuetify);
 export default new Vuetify({
     icons: {
         iconfont: 'mdi',
-        
+        iconfonts:'fa',
+        iconfonted:'mdiSvg',
+        iconfonting:'fa4',
+        icon:'faSvg'
     },
     
 });

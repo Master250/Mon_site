@@ -121,34 +121,40 @@
       class="overflow-y-auto"
       max-height="700px"
       max-width="auto"
-      
-      
+      color="grey lighten-5"
     >
-      
-      <v-container style="height: 500px; padding: 250px">
+      <v-img
+            :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+            src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
+          >
+      <v-container style="height: 500px; padding: 250px; width:auto">
         
           <v-row center
           no-gutters
-          style="height:150px, padding:250px, justify-content:center"
+          
           >
-            
-            Chez Master-Réparation c'est la satisfaction totale
+            <v-card-title class="font-weight-black"
+            style="background: linear-gradient(to right, rgb(255, 200, 0), rgba(255, 0, 0, 0.855), rgb(255, 0, 0)); background-clip: text; -webkit-background-clip: text; color: transparent;">
+            Chez IT-Master-Reset c'est la satisfaction totale
+            <v-img src="../../assets/repair.png" alt=""
+            ></v-img>
+            </v-card-title>
             
           </v-row>
             <v-row justify="space-around"
-            style="padding:30px">
+            style="padding:40px">
               <v-btn>
                 
-              téléphones
+              Smartphones
               <v-icon dark >
-                  mdi-export
+                  mdi-play
                 </v-icon>
               </v-btn>
               <v-btn>
                 
                 Ordinateurs
                 <v-icon dark >
-                  mdi-export
+                  mdi-play
                 </v-icon> 
               </v-btn>
             </v-row>
@@ -156,7 +162,9 @@
       </v-container>
       
       <Main/>
-      <Footer/> 
+      </v-img> 
+      <Footer/>
+      
     </v-sheet>
     
   </v-card>
