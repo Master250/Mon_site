@@ -41,7 +41,7 @@
       </template>
 
       <v-app-bar-title>IT-M.Reset </v-app-bar-title>
-
+      
       <v-spacer></v-spacer>
 
       <v-btn icon>
@@ -51,7 +51,7 @@
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
-
+      
       <v-menu bottom left>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon color="white" v-bind="attrs" v-on="on">
@@ -77,7 +77,7 @@
               </template>
               <v-list>
                 <v-list-item v-for="(item, index) in items1" :key="index" link>
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item-title><a v-bind:href="item.url"> {{item.title }}</a></v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -92,7 +92,7 @@
               </template>
               <v-list>
                 <v-list-item v-for="(item, index) in items2" :key="index" link>
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item-title><a v-bind:href="item.url">{{ item.title }}</a></v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -107,7 +107,7 @@
               </template>
               <v-list>
                 <v-list-item v-for="(item, index) in items3" :key="index" link>
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item-title><a :ref="url">{{ item.title }}</a></v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -172,10 +172,11 @@
 </template>
 
 <script>
-import Main from "./Main"
+import Main from "./Main.vue"
 import Footer from "./Footer.vue"
 export default {
   name: "TopHeader",
+  props:['url','item.title'],
   components:{
     Main,
     Footer
@@ -191,16 +192,24 @@ export default {
         { title: "Infos" },
       ],
       items1: [
-        { title: "Dépannage" },
-        { title: "Assistance" },
-        { title: "Accessoires" },
-        { title: "Nos Tarifs" },
+        { title: "Dépannage",
+        url:"./Depannage.vue" },
+        { title: "Assistance",
+        url:'./Assistance.vue' },
+        { title: "Accessoires",
+        url:'./Accessoire.vue' },
+        { title: "Nos Tarifs",
+        url:'./Tarifs.vue' },
       ],
       items2: [
-        { title: "Téléphone" },
-        { title: "PC portable" },
-        { title: "PC bureau" },
-        { title: "Les tablettes" },
+        { title: "Téléphone",
+        url:'./Telephone.vue' },
+        { title: "PC portable",
+        url:'./Telephone.vue' },
+        { title: "PC bureau",
+        url:'./Ordinateur.vue' },
+        { title: "Les tablettes",
+        url:'./Tablette.vue' },
       ],
       items3: [{ title: "Apropos" }],
     };
