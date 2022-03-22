@@ -13,27 +13,27 @@ const routes = [
     component: Accueil
   },
   {
-    path:'/Depannage',
+    path:'/Accueil/Depannage',
     name:'Depannage',
     component: require('../components/Accueil/Depannage.vue')
   },
   {
-    path:'/Formulaire',
+    path:'/Accueil/Formulaire',
     name:'Formulaire',
     component: require('../components/Accueil/Formulaire.vue')
   },
   {
-    path:'/Ordinateur',
+    path:'/Accueil/Ordinateur',
     name:'Ordinateur',
     component: require('../components/Accueil/Ordinateur.vue')
   },
   {
-    path:'/Tablette',
+    path:'/Accueil/Tablette',
     name:'Tablette',
     component: require('../components/Accueil/Tablette.vue')
   },
   {
-    path:'/Tarifs',
+    path:'/Accueil/Tarifs',
     name:'Tarifs',
     component: require('../components/Accueil/Tarifs.vue')
   },

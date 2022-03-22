@@ -76,8 +76,8 @@
                 </v-tab>
               </template>
               <v-list>
-                <v-list-item v-for="(item, index) in items1" :key="index" link>
-                  <v-list-item-title><a v-bind:href="item.url"> {{item.title }}</a></v-list-item-title>
+                <v-list-item v-for="(item, index) in items1" :key="index">
+                  <router-link :to="item.link"><v-list-item-title> {{item.title }}</v-list-item-title></router-link>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -91,8 +91,8 @@
                 </v-tab>
               </template>
               <v-list>
-                <v-list-item v-for="(item, index) in items2" :key="index" link>
-                  <v-list-item-title><a v-bind:href="item.url">{{ item.title }}</a></v-list-item-title>
+                <v-list-item v-for="(item, index) in items2" :key="index">
+                  <router-link :to="item.link"><v-list-item-title>{{ item.title }}</v-list-item-title></router-link>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -106,8 +106,8 @@
                 </v-tab>
               </template>
               <v-list>
-                <v-list-item v-for="(item, index) in items3" :key="index" link>
-                  <v-list-item-title><a :ref="url">{{ item.title }}</a></v-list-item-title>
+                <v-list-item v-for="(item, index) in items3" :key="index">
+                  <router-link :to="item.link"><v-list-item-title>{{ item.title }}</v-list-item-title></router-link>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -115,7 +115,7 @@
         </v-row>
       </template>
     </v-app-bar>
-        
+     
     <v-sheet
       id="scrolling-techniques-3"
       class="overflow-y-auto"
@@ -127,6 +127,7 @@
             :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
             src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
           >
+      <router-view></router-view>
       <v-container style="height: 500px; padding: 250px; width:auto">
         
           <v-row center
@@ -174,18 +175,22 @@
 <script>
 import Main from "./Main.vue"
 import Footer from "./Footer.vue"
+
+
 export default {
   name: "TopHeader",
   props:['url','item.title'],
   components:{
     Main,
-    Footer
+    Footer,
+      
   },
   data() {
     return {
       drawer: false,
       group: null,
       tab: null,
+      
       points: [
         { title: "A propos" },
         { title: "Nous contacter" },
@@ -193,23 +198,23 @@ export default {
       ],
       items1: [
         { title: "Dépannage",
-        url:"./Depannage.vue" },
+        link:"Accueil/Depannage" },
         { title: "Assistance",
-        url:'./Assistance.vue' },
+        link:'Accueil/Assistance' },
         { title: "Accessoires",
-        url:'./Accessoire.vue' },
+        link:'Accueil/Accessoire' },
         { title: "Nos Tarifs",
-        url:'./Tarifs.vue' },
+        link:'./Tarifs' },
       ],
       items2: [
         { title: "Téléphone",
-        url:'./Telephone.vue' },
+        link:'./Telephone' },
         { title: "PC portable",
-        url:'./Telephone.vue' },
+        link:'./Telephone' },
         { title: "PC bureau",
-        url:'./Ordinateur.vue' },
+        link:'./Ordinateur' },
         { title: "Les tablettes",
-        url:'./Tablette.vue' },
+        link:'./Tablette' },
       ],
       items3: [{ title: "Apropos" }],
     };

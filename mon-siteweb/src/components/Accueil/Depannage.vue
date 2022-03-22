@@ -1,19 +1,20 @@
 <template>
-    <v-app>
-        <TopHeader/>
-        <p>je suis là</p>
-    </v-app>
+    <div>
+        <top-header/>
+        <p>ujkgkjgkkjhgkjkjgjk,gjkgk</p>
+    </div>
     
 </template>
 
 <script>
-import TopHeader from "./TopHeader.vue"
+import TopHeader from "./TopHeader"
 
 export default {
     name:"Depannage",
-    components:{
-        TopHeader
-    }
+    components: {
+        "top-header": TopHeader, 
+        
+    },
     
 }
 </script>

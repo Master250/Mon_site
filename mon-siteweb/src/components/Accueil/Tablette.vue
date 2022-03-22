@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <TopHeader/>
+        <top-header/>
     </v-app>
     
 </template>
@@ -11,7 +11,7 @@ import TopHeader from "./TopHeader.vue"
 export default {
     name:"Depannage",
     components:{
-        TopHeader
+        "top-header":TopHeader
     }
     
 }
